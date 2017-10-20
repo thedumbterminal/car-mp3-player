@@ -19,7 +19,7 @@ def main():
         while True:
             chosen = random.choice(tracks)
             print chosen
-            subprocess.call(['ls', '-al', chosen])
+            subprocess.call(['mpg321', '-v', '-a hw:1', '-o alsa', chosen])
 
 if __name__ == "__main__":
     main()
