@@ -18,8 +18,9 @@ def main():
     if(len(tracks)):
         while True:
             chosen = random.choice(tracks)
-            print chosen
-            subprocess.call(['mpg321', '-v', '-a hw:1', '-o alsa', chosen])
+            cmd = 'mpg321 -a hw:1 -o alsa "{0}"'.format(chosen)
+            print cmd
+            subprocess.call(cmd, shell=True)
 
 if __name__ == "__main__":
     main()
