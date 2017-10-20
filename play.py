@@ -13,12 +13,13 @@ def find(pattern, path):
     return result
 
 def main():
-    tracks = find('*.mp3', '/tmp/mp3s')
-
-    while True:
-        chosen = random.choice(tracks)
-        print chosen
-        subprocess.call(['ls', '-al', chosen])
+    tracks = find('*.mp3', '/mnt/usb/mp3s')
+    print "Tracks found: {0}".format(len(tracks))
+    if(len(tracks)):
+        while True:
+            chosen = random.choice(tracks)
+            print chosen
+            subprocess.call(['ls', '-al', chosen])
 
 if __name__ == "__main__":
     main()
