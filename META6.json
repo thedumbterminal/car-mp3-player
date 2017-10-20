@@ -1,7 +1,0 @@
-{
-	"perl": "6.*",
-	"name": "mp3-player",
-	"version": "0.0.1",
-	"description": "Play MP3 randomly from a base directory",
-	"depends": [ "File::File" ]
-}
