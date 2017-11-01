@@ -1,4 +1,4 @@
-# car-mp3-player
+# Car MP3 Player
 Playing random music on the move using [mpg321](http://mpg321.sourceforge.net/)
 
 ## Install
