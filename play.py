@@ -3,8 +3,9 @@ import os
 import fnmatch
 import random
 import subprocess
+import sys
 
-def find(pattern, path):
+def _find(pattern, path):
     result = []
     for root, dirs, files in os.walk(path):
         for name in files:
@@ -12,13 +13,22 @@ def find(pattern, path):
                 result.append(os.path.join(root, name))
     return result
 
+def _playCommand():
+    if sys.platform == 'darwin':
+        return 'afplay "{0}"'
+    else:
+        return 'mpg321 -a hw:1 -o alsa "{0}"'
+
 def main():
-    tracks = find('*.mp3', '/mnt/usb/mp3s')
+    if len(sys.argv) != 2:
+        sys.exit("Usage: {0} <mp3 directory>".format(sys.argv[0]))
+    tracks = _find('*.mp3', sys.argv[1])
     print "Tracks found: {0}".format(len(tracks))
-    if(len(tracks)):
+    if len(tracks):
+        playCommand = _playCommand()
         while True:
             chosen = random.choice(tracks)
-            cmd = 'mpg321 -a hw:1 -o alsa "{0}"'.format(chosen)
+            cmd = playCommand.format(chosen)
             print cmd
             subprocess.call(cmd, shell=True)
 
