@@ -1,5 +1,10 @@
 # Car MP3 Player
-Playing random music on the move using [mpg321](http://mpg321.sourceforge.net/)
+Playing random music on the move.
+
+Supports:
+
+* Mac OSX
+* linux (requires [mpg321](http://mpg321.sourceforge.net/)).
 
 ## Install
 
@@ -8,4 +13,4 @@ Playing random music on the move using [mpg321](http://mpg321.sourceforge.net/)
 ## Run
 
     cd car-mp3-player
-    ./play.py
+    ./play.py /some/directory
