@@ -13,4 +13,11 @@ Supports:
 ## Run
 
     cd car-mp3-player
+
+To play music randomly and recursively from a directory:
+
     ./play.py /some/directory
+
+Top copy music randomly and recursively from a directory to another:
+
+    ./usb_load.py /source/directory /dest/directory

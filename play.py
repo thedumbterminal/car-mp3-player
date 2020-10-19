@@ -13,11 +13,13 @@ def _find(pattern, path):
                 result.append(os.path.join(root, name))
     return result
 
+
 def _playCommand():
     if sys.platform == 'darwin':
-        return 'afplay "{0}"'
+        return 'afplay'
     else:
-        return 'mpg321 -a hw:1 -o alsa "{0}"'
+        return 'mpg321 -a hw:1 -o alsa'
+
 
 def main():
     if len(sys.argv) != 2:
@@ -28,9 +30,9 @@ def main():
         playCommand = _playCommand()
         while True:
             chosen = random.choice(tracks)
-            cmd = playCommand.format(chosen)
-            print cmd
-            subprocess.call(cmd, shell=True)
+            print "Playing: {0}".format(chosen)
+            subprocess.call([playCommand, chosen])
+
 
 if __name__ == "__main__":
     main()
