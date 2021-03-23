@@ -22,10 +22,8 @@ def _playCommand():
 
 
 def _make_dir(dir):
-    try:
-        os.makedirs(dir)
-    except Exception:
-        False
+    if not os.path.isdir(dir):
+       os.makedirs(dir)
 
 
 def main():
@@ -44,11 +42,11 @@ def main():
             #must not be an absolute path
             dest_partial_dir = source_full_dir.replace(source_dir, '', 1).replace('/', '', 1)
             dest_full_dir = os.path.join(dest_dir, dest_partial_dir)
-            _make_dir(dest_full_dir)
             dest_file = os.path.join(dest_full_dir, source_file)
-            print "Copying: {0} to {1}".format(chosen, dest_file)
-            shutil.copy2(chosen, dest_file)
-
+            if not os.path.isfile(dest_file):
+                _make_dir(dest_full_dir)
+                print "Copying: {0} to {1}".format(chosen, dest_file)
+                shutil.copy2(chosen, dest_file)
 
 if __name__ == "__main__":
     main()
