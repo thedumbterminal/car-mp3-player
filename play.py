@@ -4,11 +4,7 @@ import fnmatch
 import random
 import subprocess
 import sys
-import signal
 
-
-def _signal_handler(signum, frame):
-    print('Signal handler called with signal', signum)
 
 def _find(pattern, path):
     result = []
