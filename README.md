@@ -9,6 +9,7 @@ Supports:
 ## Install
 
     git clone https://github.com/thedumbterminal/car-mp3-player.git
+    pip install -r requirements.txt
 
 ## Run
 

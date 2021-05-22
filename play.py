@@ -4,6 +4,11 @@ import fnmatch
 import random
 import subprocess
 import sys
+import signal
+
+
+def _signal_handler(signum, frame):
+    print('Signal handler called with signal', signum)
 
 def _find(pattern, path):
     result = []
@@ -24,6 +29,7 @@ def _playCommand():
 def main():
     if len(sys.argv) != 2:
         sys.exit("Usage: {0} <mp3 directory>".format(sys.argv[0]))
+
     tracks = _find('*.mp3', sys.argv[1])
     print "Tracks found: {0}".format(len(tracks))
     if len(tracks):
@@ -35,4 +41,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print('Quitting...')
