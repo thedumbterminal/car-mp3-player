@@ -1,4 +1,7 @@
 # Car MP3 Player
+
+[![CI](https://github.com/thedumbterminal/car-mp3-player/actions/workflows/ci.yml/badge.svg)](https://github.com/thedumbterminal/car-mp3-player/actions/workflows/ci.yml)
+
 Playing random music on the move.
 
 Supports:
