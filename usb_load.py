@@ -28,7 +28,7 @@ def main():
     source_dir = sys.argv[1]
     dest_dir = sys.argv[2]
     tracks = _find('*.mp3', source_dir)
-    print "Tracks found: {0}".format(len(tracks))
+    print("Tracks found: {0}".format(len(tracks)))
     if len(tracks):
         while True:
             chosen = random.choice(tracks)
@@ -42,7 +42,7 @@ def main():
             dest_file = os.path.join(dest_full_dir, source_file)
             if not os.path.isfile(dest_file):
                 _make_dir(dest_full_dir)
-                print "Copying: {0} to {1}".format(chosen, dest_file)
+                print("Copying: {0} to {1}".format(chosen, dest_file))
                 shutil.copy2(chosen, dest_file)
 
 
