@@ -27,12 +27,12 @@ def main():
         sys.exit("Usage: {0} <mp3 directory>".format(sys.argv[0]))
 
     tracks = _find('*.mp3', sys.argv[1])
-    print "Tracks found: {0}".format(len(tracks))
+    print("Tracks found: {0}".format(len(tracks)))
     if len(tracks):
         playCommand = _playCommand()
         while True:
             chosen = random.choice(tracks)
-            print "Playing: {0}".format(chosen)
+            print("Playing: {0}".format(chosen))
             subprocess.call([playCommand, chosen])
 
 
